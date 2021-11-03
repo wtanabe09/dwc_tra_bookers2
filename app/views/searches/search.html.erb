@@ -1,0 +1,5 @@
+<% if @model == "book" %>
+  <%= render 'books/index', books: @books %>
+<% else %>
+  <%= render 'users/index', users: @users %>
+<% end %>

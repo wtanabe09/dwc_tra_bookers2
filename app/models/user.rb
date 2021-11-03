@@ -25,4 +25,20 @@ class User < ApplicationRecord
     passive_relationships.find_by(follower_id: user.id).present?
   end
   
+  def self.search(search)
+    if search.present?
+      if @method == "perfect"
+        User.where(['name LIKE ?', "#{search}"])
+      elsif @method == "forward"
+        User.where(['name LIKE ?', "#{search}%"])
+      elsif @method == "forward"
+        User.where(['name LIKE ?', "%#{search}"])
+      else
+        User.where(['name LIKE ?', "%#{search}%"])
+      end
+    else
+      User.all
+    end
+  end
+  
 end

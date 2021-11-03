@@ -1,0 +1,2 @@
+<!--#favorites_buttons_book.idこの部分のHTMLだけ、renderで部分的に更新するという処理です-->
+$('#favorites_buttons_<%= @book.id %>').html("<%= j(render 'favorites/favorite', book: @book) %>");
