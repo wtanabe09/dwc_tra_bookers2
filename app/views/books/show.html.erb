@@ -25,7 +25,10 @@
           </tr>
         </tbody>
       </table>
-      <%= render 'book_comments/index', book: @show_book %>
+      <!--コメント-->
+      <div id="comment_index" class="mb-5">
+        <%= render 'book_comments/index', book: @show_book %>
+      </div>
       <%= render 'book_comments/form', book: @show_book, comment: @comment %>
     </div>
   </div>
