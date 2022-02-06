@@ -1,3 +1,4 @@
 <!--#comment_indexこの部分のHTMLだけ、renderで部分的に更新するという処理です-->
+<!-- create, destroy を共通でやるならこの記述が必要になるが、create.js,destroy.jsを両方作ればデフォルトではそれらを見に行く。  -->
 $('#comment_index').html("<%= j(render 'index', book: @show_book) %>");
 $(".content_area").val('');
