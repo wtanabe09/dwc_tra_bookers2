@@ -19,12 +19,15 @@
         </td>
         <td><%= link_to book.title, book_path(book) %></td>
         <td><%= book.body %></td>
+        
         <td id="favorites_buttons_<%= book.id %>">
           <%= render 'favorites/favorite', book: book %>  
         </td>
+
         <td>コメント件数：<%= book.book_comments.count %></td>
       </tr>
       <% end %>
+      <%= paginate books %>
     </tbody>
   </table>
 </div>
