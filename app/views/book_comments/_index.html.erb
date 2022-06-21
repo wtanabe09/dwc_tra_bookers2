@@ -1,7 +1,11 @@
 <% book.book_comments.each do |book_comment| %>
   <div class="comment_block">
     <%= link_to user_path(book_comment.user) do %>
-      <%= attachment_image_tag book_comment.user, :profile_image, fallback: "no_image.jpg", size: "40x40" %><br>
+      <% if book_comment.user.profile_image.attached? %>
+        <%= image_tag book_comment.user.profile_image, size: "40x40" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "40x40" %>
+      <% end %>
       <%= book_comment.user.name %>
     <% end %>
     <%= book_comment.comment %>
